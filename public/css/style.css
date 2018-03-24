@@ -1,0 +1,357 @@
+/*----- FONT INIT -----*/
+@font-face {
+    font-family: moonf;
+    src: url("../fonts/Moon Flower.ttf");
+}
+
+@font-face {
+    font-family: moonfbold;
+    src: url("../fonts/Moon Flower Bold.ttf");
+}
+
+@font-face {
+    font-family: raleway;
+    src: url("../fonts/Raleway Thin.ttf");
+}
+
+@font-face {
+    font-family: ralewayreg;
+    src: url("../fonts/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: summer;
+    src: url("../fonts/Summer Font Light.otf");
+}
+
+
+/*----- GENERAL CSS -----*/
+body{
+	overflow-x: hidden;
+    background-color: #36465d;
+}
+
+hr {
+    padding: 0; 
+    border: none; 
+    border-top: medium double #333; 
+    color: #333; 
+    text-align: center; 
+    width: 96%;
+}
+
+
+/*----- WELCOME CSS -----*/
+.flex-center {
+    justify-content: center;
+}
+
+#titleblock {
+    width: 1100px;
+    margin: auto;
+    text-align: center;
+    font-family: moonf, sans-serif;
+    color: white;
+}
+
+#title {
+    letter-spacing: 20px;
+    border: 15px outset white;
+    padding: 0px 40px;
+    border-radius: 1000px;
+    font-size: 6em;
+}
+
+#subtitle {
+    font-size: 2em;
+    letter-spacing: 20px;
+    display: inline-flex;
+}
+
+.links {
+    font-family: moonfbold, sans-serif;
+    text-align: center;
+    margin-top: 30px;
+    width: 250px;
+    margin: auto;
+    height: 100px;
+}
+
+.links > a {
+    color: #383838;
+    padding: 5px 20px;
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    background-color: white;
+}
+
+.links > a:first-child {
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.links > a:last-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+
+/*----- NAVBAR CSS -----*/
+.navbar-brand, .nav > li > a {
+    font-family: moonf;
+    color: #36465d;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+/*----- LOGIN CSS -----*/
+#login {
+	margin-top: 25px;
+	margin-left: 31vw;
+	border-radius: 30px;
+	padding: 0px;
+	width: 450px;
+}
+
+#loginbtn {
+	width: 113px;
+	font-family: moonfbold;
+	color: #383838;
+	font-size: 2em;
+	padding-top: 0px;
+	padding-bottom: 0px;
+    letter-spacing: 8px;
+}
+
+#loginbtngroup {
+	margin-left: 15px;
+}
+
+#forgotpass {
+	color: #529ecc;
+	font-family: raleway;
+}
+
+.control-label {
+	margin-top: 8px;
+	color: white;
+	font-family: raleway;
+}
+
+.checkbox {
+	margin-left: 40px;
+	color: white;
+	font-family: raleway;
+}
+
+.help-block {
+	position: abolute;
+	margin-left: -40.3vw;
+	margin-top: -70px;
+	width: 100vw;
+	text-align: center;
+}
+
+
+/*----- REGISTER CSS -----*/
+#regforms {
+	margin-top: 13vh;
+}
+
+#regbtn {
+	font-family: moonfbold;
+	color: #383838;
+	font-size: 2em;
+	padding-top: 0px;
+	padding-bottom: 0px;
+    letter-spacing: 3px;
+}
+
+.form-horizontal label {
+	font-family: raleway;
+	position: relative;
+	margin: 0px;
+}
+
+
+/*----- HOME CSS -----*/
+.panel-body > h1 {
+    color: #383838;
+    font-family: moonfbold;
+    text-align: center;
+    font-size: 2.8em;
+    letter-spacing: 3px;
+}
+
+.panel-body > img {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.panel-body > p {
+    width: 92%;
+    margin: auto;
+    font-family: ralewayreg;
+}
+
+.panel-body > p:last-child {
+    margin-bottom: 20px;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+
+/*----- CALCULATOR CSS -----*/
+form h2, form h3 {
+    color: #383838;
+    font-family: summer;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+#calculate {
+    margin: 20px 15px 10px 0px;
+    background-color: #529ecc;
+    color: white;
+    font-family: moonfbold;
+    font-size: 2em;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    letter-spacing: 3px;
+}
+
+.calcform {
+    border: 2px solid red;
+}
+
+
+/*----- PROFILE CSS -----*/
+#profpicdiv > img {
+    border: 20px outset white;
+    position: absolute;
+    float: left;
+    margin-left: 170px;
+    z-index: 999;
+    width: 20%;
+    padding: 0px;
+}
+
+.profileinfo {
+    border: 3px dashed #529ecc;
+    padding: 0px;
+}
+
+.contentstripe {
+    margin-top: 15px;
+    padding: 0px;
+}
+
+.contentstripe h1 {
+    font-family: summer;
+    letter-spacing: 5px;
+    padding: 0px;
+}
+
+.contentstripe h4 {
+    font-family: summer;
+    font-size: 2em;
+    padding: 0px;
+}
+
+/*----- VIEW SUBJECT CSS -----*/
+.namespan {
+    font-family: summer;
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.subjecttable > h3 {
+    text-align: center;
+    padding: 0px;
+    margin: auto;
+    font-family: moonfbold;
+    font-size: 3em;
+}
+
+.subjecttable > h3:first-child {
+    margin-bottom: 10px;
+}
+
+.subjecttable > table {
+    text-align: center;
+    padding: 0px;
+    margin: auto;
+}
+
+table{
+    border: 3px solid #36465d;
+}
+
+td {
+    padding: 10px 40px 0px 40px;
+    font-family: summer;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+tr:nth-child(even) {
+    color: #838383;
+}
+
+tr:nth-child(odd) {
+    background-color: #36465d;
+    color: white;
+}
+
+#hrmini {
+    padding: 0; 
+    border: none; 
+    border-top: medium double #333; 
+    color: #333; 
+    text-align: center; 
+    width: 60%;
+}
+
+.showbtn {
+    margin: 20px 15px 10px 0px;
+    background-color: #529ecc;
+    color: white;
+    font-family: moonfbold;
+    font-size: 2em;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    letter-spacing: 3px;
+}
+
+.showbtn > a {
+    color: white;
+}
+
+
+/*----- POSTS CSS -----*/
+.postpanel {
+    display: flex;
+}
+
+.postpanel > span {
+    margin-left: 10px;
+    font-family: summer;
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
