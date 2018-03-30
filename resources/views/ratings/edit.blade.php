@@ -21,14 +21,20 @@
                                 <hr>
                                 <input type="hidden" name="category[]" value="{{$posts->category}}" />
                                 <h1> {{$posts->category}} ----- {{$posts->percentage}}%</h1>
-                                Score<input type="text" name="score[]" class="form-control"/>
-                                Total Score<input type="text" name="total[]" class="form-control"/>
+
+
+
+                                Score<input type="text" name="score[]" id="score" class="form-control" />
+                                Total Score<input type="text" name="total[]" id="total" class="form-control"/>
+
+
                                 <input type="hidden" name="percentage[]" value="{{$posts->percentage}}"/>
                                 <hr>
                             @endforeach
+
                             <input type="hidden" name="subject_name" value="{{$pota->name}}" />
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
-                            <input type="submit" name="submit" value="Edit" class="btn btn-success pull-right" />
+                            <input type="submit" name="submit" value="Calculate" class="btn btn-success pull-right" />
                         </form>
                     </div>
                 </div>
