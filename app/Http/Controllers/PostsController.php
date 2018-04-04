@@ -7,8 +7,10 @@ use App\Standing;
 use Illuminate\Http\Request;
 use App\Post;
 use Auth;
+use App\Cat;
 
 use App\Users;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -35,10 +37,60 @@ class PostsController extends Controller
     {
 
         $pota = Standing::where('id', '=', $id)->get()->first();
+
         $categories = Grade::where('standing_id', '=', $id)->get();
         $post = Grade::where('standing_id','=',$id)->get()->first();
 
-        return view('posts.show', compact('post', 'categories','pota'));
+
+        $catingSum = DB::table('grades')
+            ->groupBy('category')
+            ->selectRaw('*, sum(score) as sum ,sum(total) as total')
+            ->where('standing_id', '=', $id)
+            ->get();
+
+//        dd($catingSum);
+
+
+
+
+//             foreach($catingSum as $kuring) {
+//            $hello = $kuring->sum;
+//            $hello2 = $kuring->total;
+//        }
+
+
+//            dd($hello,$hello2);
+
+
+//        $catingSum2 = DB::table('cats')
+//            ->groupBy('cats_name')
+//            ->selectRaw('*, sum(tTotal) as total')
+//            ->get();
+
+
+//
+//        dd($catingSum);
+
+
+
+
+        //query group by eloquent
+        //query unique category names group
+        //unique cat. query and total,
+        //laravel eloquent sum group by
+// $sum = Sum(cat:: weger )
+        //grou pby the category name categroy id.
+        //unique names
+        //where subject id is.
+
+
+//        $sum = 5+5+5= 15
+
+
+
+
+
+        return view('posts.show', compact('post', 'categories','pota', 'catingSum'));
     }
 
 

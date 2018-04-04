@@ -5,20 +5,39 @@
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default">
 				<div class="panel-heading namespan">
-					<span>{{ $post->user->name }}'s <b>{{$pota->subject_name}}</b> grade</span>
+					{{--<span>{{$post->user->name }}'s <b>{{$pota->subject_name}}</b> grade</span>--}}
 
 				</div>
 				<div class="panel panel-default temp">
 					<div class="panel-body subjecttable">
 	                    <h3>Subject: {{ $pota->subject_name }}</h3>
 	                    <hr id="hrmini" />
+
+
+
 	                    <table>
-							@foreach($categories as $posts)
+							@foreach($catingSum as $posts)
 								<tr>
 									<td><p>{{$posts->category}}</p></td>
-									<td><p>{{ ($posts->score*100)/$posts->total }}%</p></td>
+
+									<td><p>{{ ($posts->sum*100)/$posts->total }}%</p></td>
 								</tr>
 							@endforeach
+
+							{{--@foreach($catingSum as $posts)--}}
+							{{--<tr>--}}
+							{{--<td><p>{{$posts->category}}</p></td>--}}
+
+							{{--<td><p>{{ ($posts->score*100)/$posts->total }}%</p></td>--}}
+							{{--</tr>--}}
+							{{--@endforeach--}}
+
+							{{--@foreach($catingSum as $kuring)--}}
+								{{--{{$kuring->sum}} ---- {{$kuring->total}}--}}
+
+								{{--@endforeach--}}
+
+
 	                    </table>
 
 	                    <h3>Total: {{$pota->overall}} %</h3>

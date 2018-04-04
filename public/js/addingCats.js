@@ -7,12 +7,14 @@
 $(document).ready(function(){
 
 
-
-
     var counter = 2;
+
+
+
 
     $(".addButton").click(function () {
         var t = $(this).attr("id").split("_")[1];
+        // var cat = $(this).attr("data-cat").split("_")[1];
 
         if(counter>10){
             alert("Only 10 inputs allowed");
@@ -31,6 +33,9 @@ $(document).ready(function(){
              );
 
         newTextBoxDiv.appendTo("#TextBoxesGroup_"+t);
+
+        counter++;
+        console.log(counter);
 
 
 

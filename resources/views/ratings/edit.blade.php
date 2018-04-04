@@ -52,7 +52,7 @@
                                 </div>
 
 
-                                <button type="button" id = "addButton_{{$posts->category}}"  class="btn btn-primary addButton">Add Button</button>
+                                <button type="button" id = "addButton_{{$posts->category}}"  class="btn btn-primary addButton" data-cat ="cat_{{$posts->category_id}}">Add Button</button>
                                 <button type="button" class="btn btn-primary removeButton">Remove</button>
 
 

@@ -27,7 +27,7 @@
                                     <div id="TextBoxDiv1">
                                         <h3>Category #1:</h3><input type="text" name="category[]" class="form-control"/>
                                         Percentage<input type="text" name="percentage[]" class="form-control"/>
-
+                                        <input type="hidden" name="category_id[]" class="form-control" value="1"/>
                                     </div>
                                 </div>
                                 <input type='button' value='Add Category' id='addButton'>

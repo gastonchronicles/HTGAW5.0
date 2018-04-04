@@ -124,44 +124,71 @@ class RatingsController extends Controller
 
         $item2 = array(
 
-                    'cats_name' =>$catNameArray[$i],
+
                     'subject_id' => $subject_id,
-                    'tScore' => $scoreArray[$i],
-                    'tTotal' => $totalArray[$i],
+                     'standing_id' => $standing_id,
+                     'category' => $catNameArray[$i],
+                    'score' => $scoreArray[$i],
+                     'total' => $totalArray[$i],
+                       'user_id' => Auth::user()->id,
 
                 );
                 $items2[] = $item2;
             }
 
 
-            Cat::insert($items2);
+            Grade::insert($items2);
+
+
+
+//            $catingSum = DB::table('grades')
+//                ->groupBy('category')
+//                ->selectRaw('*, sum(score) as sum ,sum(total) as total')
+//                ->get();
+//
+//            foreach($catingSum as $kuring) {
+//                $hello[] = $kuring->sum;
+//                $hello2[] = $kuring->total;
+//            }
+//            dd($hello, $hello2);
+//
+
+
+//
+//
+//
+//        $items = array();
+//        for($i = 0; $i < $count; $i++){
+//
+//
+//
+//
+//            $item = array(
+//
+//                'subject_id' => $subject_id,
+//                'standing_id' => $standing_id,
+//                'category' => $categoryArray[$i],
+//                'score' => $scoreArray[$i],
+//                'total' => $totalArray[$i],
+//                'user_id' => Auth::user()->id,
+//            );
+//            $items[] = $item;
+//        }
+//
+//
+//        Grade::insert($items);
+
+
+
+
+
+
+
 
 
 
         $categoryArray = $request->input('category');
         $count = count($categoryArray);
-
-        $items = array();
-        for($i = 0; $i < $count; $i++){
-
-
-
-
-            $item = array(
-
-                'subject_id' => $subject_id,
-                'standing_id' => $standing_id,
-                'category' => $categoryArray[$i],
-                'score' => $scoreArray[$i],
-                'total' => $totalArray[$i],
-                'user_id' => Auth::user()->id,
-            );
-            $items[] = $item;
-        }
-
-
-        Grade::insert($items);
-
         $standing = new Standing;
         $standing->subject_name = $request->input('subject_name');
 
