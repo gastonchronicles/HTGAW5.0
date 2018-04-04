@@ -7,6 +7,7 @@ use App\Subject;
 use Illuminate\Http\Request;
 use App\Rating;
 use App\Grade;
+use App\Cat;
 use Auth;
 
 class RatingsController extends Controller
@@ -42,6 +43,9 @@ class RatingsController extends Controller
 
         $subjectId = $request->input('subject_id');
 
+        $categoryIdArray = $request->input('category_id');
+//        dd($categoryIdArray);
+
         $categoryArray = $request->input('category');
         $percentageArray = $request->input('percentage');
 
@@ -58,7 +62,9 @@ class RatingsController extends Controller
 
             $item = array(
 
+
                 'subject_id' => $subjectId,
+                'category_id' => $categoryIdArray[$i],
                 'category' => $categoryArray[$i],
                 'percentage' => $percentageArray[$i]
             );
@@ -99,21 +105,46 @@ class RatingsController extends Controller
     }
 
     public function update(Request $request, $subject_id)
-    {
+        {
+
 
         $standing_id = $request->input('standing_id');
-        $categoryArray = $request->input('category');
         $scoreArray = $request->input('score');
         $totalArray = $request->input('total');
+        $catNameArray = $request->input('cats_name');
         $percentageArray = $request->input('percentage');
 
+        $count = count($scoreArray);
 
 
+
+
+        $items2 = array();
+        for($i = 0; $i < $count; $i++){
+
+        $item2 = array(
+
+                    'cats_name' =>$catNameArray[$i],
+                    'subject_id' => $subject_id,
+                    'tScore' => $scoreArray[$i],
+                    'tTotal' => $totalArray[$i],
+
+                );
+                $items2[] = $item2;
+            }
+
+
+            Cat::insert($items2);
+
+
+
+        $categoryArray = $request->input('category');
         $count = count($categoryArray);
-
 
         $items = array();
         for($i = 0; $i < $count; $i++){
+
+
 
 
             $item = array(

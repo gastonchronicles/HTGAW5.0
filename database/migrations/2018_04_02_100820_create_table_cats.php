@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRatingsTable extends Migration
+class CreateTableCats extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateRatingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ratings', function (Blueprint $table) {
-            $table->increments('rating_id');
+        Schema::create('cats', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('subject_id');
-            $table->integer('category_id');
-            $table->text('category')->nullable();
-            $table->integer('percentage')->nullable();
+            $table->text('cats_name');
+            $table->integer('tScore');
+            $table->integer('tTotal');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateRatingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ratings');
+        Schema::dropIfExists('cats');
     }
 }

@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/js.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/addingCats.js')}}"></script>
+
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3">
                 <div class="panel panel-default">
@@ -20,12 +25,41 @@
                             @foreach($categories as $posts)
                                 <hr>
                                 <input type="hidden" name="category[]" value="{{$posts->category}}" />
-                                <h1> {{$posts->category}} ----- {{$posts->percentage}}%</h1>
+
+
+                                <h1> {{$posts->category_id }}. {{$posts->category}} ----- {{$posts->percentage}}%</h1>
 
 
 
-                                Score<input type="text" name="score[]" id="score" class="form-control" />
-                                Total Score<input type="text" name="total[]" id="total" class="form-control"/>
+
+
+                                {{--Score<input type="text" name="score[]" id="score" class="form-control" />--}}
+                                {{--Total Score<input type="text" name="total[]" id="total" class="form-control"/>--}}
+
+
+
+                                <div id='TextBoxesGroup_{{$posts->category}}'>
+
+
+                                    <div id="TextBoxDiv1">
+
+                                        {{--<input type="hidden" id="score" name="score[]" value="" class="score"/>--}}
+                                        {{--Score<input type="text" name="score[]" class="form-control"/>--}}
+                                        {{--Total Score<input type="text" name="total[]" class="form-control"/>--}}
+                                        {{--<input type="hidden" name="ninja" value="{{$posts->category}}_1"/>--}}
+
+                                    </div>
+                                </div>
+
+
+                                <button type="button" id = "addButton_{{$posts->category}}"  class="btn btn-primary addButton">Add Button</button>
+                                <button type="button" class="btn btn-primary removeButton">Remove</button>
+
+
+
+
+
+
 
 
                                 <input type="hidden" name="percentage[]" value="{{$posts->percentage}}"/>
@@ -42,3 +76,4 @@
         </div>
     </div>
 @endsection
+

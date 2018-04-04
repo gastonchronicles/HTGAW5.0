@@ -21,8 +21,8 @@ $(document).ready(function(){
             .attr("id", 'TextBoxDiv' + counter);
 
         newTextBoxDiv.after().html('<h3>Category #'+ counter + ' : </h3>' +
-            '<input type="text" name="category[]" class="form-control"> Percentage #'+ counter + ' :' +
-        '<input type="text" name="percentage[]" class="form-control">');
+            '<input type="text" name="category[]" class="form-control"/> Percentage #'+ counter + ' :' +
+        '<input type="text" name="percentage[]" class="form-control"/><input type="hidden" name="category_id[]" value='+counter+' class="form-control"/>' );
 
 
 

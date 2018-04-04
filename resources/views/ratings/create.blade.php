@@ -21,29 +21,13 @@
                             <hr />
 
                             <div class="col-sm-4" class="calcform">
-                            {{--<h3>First Category:</h3><input type="text" name="category[]" class="form-control"/>--}}
-                                {{--Percentage<input type="text" name="percentage[]" class="form-control"/>--}}
 
-
-                            {{--<h3>Second Category:</h3><input type="text" name="category[]" class="form-control"/>--}}
-                                {{--Percentage<input type="text" name="percentage[]" class="form-control"/>--}}
-
-
-                            {{--<h3>Third Category:</h3><input type="text" name="category[]" class="form-control"/>--}}
-                                {{--Percentage<input type="text" name="percentage[]" class="form-control"/>--}}
-
-
-                            {{--<h3>Fourth Category:</h3><input type="text" name="category[]" class="form-control"/>--}}
-                                {{--Percentage<input type="text" name="percentage[]" class="form-control"/>--}}
-
-
-                            {{--<h3>Fifth Category:</h3><input type="text" name="category[]" class="form-control"/>--}}
-                                {{--Percentage<input type="text" name="percentage[]" class="form-control"/>--}}
 
                                 <div id='TextBoxesGroup'>
                                     <div id="TextBoxDiv1">
                                         <h3>Category #1:</h3><input type="text" name="category[]" class="form-control"/>
                                         Percentage<input type="text" name="percentage[]" class="form-control"/>
+
                                     </div>
                                 </div>
                                 <input type='button' value='Add Category' id='addButton'>
