@@ -11,7 +11,6 @@
                         <span>By: {{ $post->user->name }}</span>
                     </div>
                     <div class="panel-body panel-default postpanel">
-
                         <span><h2>{{$post->name}}</h2> <a href="/ratings/{{ $post->subject_id }}">View Rating</a>
 						</span>
                     </div>

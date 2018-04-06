@@ -15,12 +15,12 @@
 
 
 
-	                    <table>
+	                    <table id="results">
 							@foreach($catingSum as $posts)
 								<tr>
 									<td><p>{{$posts->category}}</p></td>
 
-									<td><p>{{ ($posts->sum*100)/$posts->total }}%</p></td>
+									<td><p>{{ round(($posts->sum*100)/$posts->total,2) }}%</p></td>
 								</tr>
 							@endforeach
 
@@ -40,7 +40,7 @@
 
 	                    </table>
 
-	                    <h3>Total: {{$pota->overall}} %</h3>
+	                    <h3 id="total">Total: {{$pota->overall}} %</h3>
 	                    <hr id="hrmini" />
                         <h3>Status: {{$pota->status}}</h3>
 	                </div>

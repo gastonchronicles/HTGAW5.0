@@ -27,17 +27,27 @@
 
 /*----- GENERAL CSS -----*/
 body{
-	overflow-x: hidden;
-    background-color: #36465d;
+    overflow-x: hidden;
+    background-color: #6e7b90;
 }
 
 hr {
-    padding: 0; 
-    border: none; 
-    border-top: medium double #333; 
-    color: #333; 
-    text-align: center; 
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
     width: 96%;
+}
+
+.btn {
+    -moz-transition: all 0.2s;
+    background-color: #f0f0f0;
+}
+
+.btn:hover {
+    background-color: #529ecc;
+    color: white;
 }
 
 
@@ -56,7 +66,9 @@ hr {
 
 #title {
     letter-spacing: 20px;
-    border: 15px outset white;
+    border: 15px solid white;
+    border-bottom-color: lightgray;
+    border-right-color: lightgray;
     padding: 0px 40px;
     border-radius: 1000px;
     font-size: 6em;
@@ -65,6 +77,7 @@ hr {
 #subtitle {
     font-size: 2em;
     letter-spacing: 20px;
+    font-weight: bold;
     display: inline-flex;
 }
 
@@ -87,6 +100,7 @@ hr {
     text-transform: uppercase;
     display: block;
     background-color: white;
+    -moz-transition: all 0.2s;
 }
 
 .links > a:first-child {
@@ -104,83 +118,148 @@ hr {
     border-bottom-right-radius: 100px;
 }
 
+.links > a:hover {
+    background-color: #529ecc;
+    color: white;
+}
 
 /*----- NAVBAR CSS -----*/
 .navbar-brand, .nav > li > a {
-    font-family: moonf;
-    color: #36465d;
-    font-size: 2em;
-    font-weight: bold;
+    font-family: raleway;
+    color: #6e7b90;
+    font-size: 1.2em;
+    -moz-transition: all 0.2s;
+    letter-spacing: 2px;
 }
 
+.nav > li > a:hover, .navbar-brand:hover {
+    font-family: ralewayreg;
+    color: #529ecc;
+    font-size: 1.4em;
+}
 
 /*----- LOGIN CSS -----*/
 #login {
-	margin-top: 25px;
-	margin-left: 31vw;
-	border-radius: 30px;
-	padding: 0px;
-	width: 450px;
+    margin-top: 25px;
+    margin-left: 31vw;
+    border-radius: 30px;
+    padding: 0px;
+    width: 450px;
 }
 
 #loginbtn {
-	width: 113px;
-	font-family: moonfbold;
-	color: #383838;
-	font-size: 2em;
-	padding-top: 0px;
-	padding-bottom: 0px;
+    text-align: center;
+    width: 50%;
+    font-family: moonfbold;
+    color: #383838;
+    font-size: 2em;
+    padding-top: 0px;
+    padding-bottom: 0px;
     letter-spacing: 8px;
+    display: block;
+    margin: auto;
+}
+
+#loginbtn:hover {
+    color: white;
 }
 
 #loginbtngroup {
-	margin-left: 15px;
+    width: 230px;
 }
 
 #forgotpass {
-	color: #529ecc;
-	font-family: raleway;
+    background-color: transparent;
+    color: #f0f0f0;
+    font-family: summer;
+    width: 100%;
+    letter-spacing: 3px;
+    font-size: 1.5em;
+}
+
+#forgotpass:hover {
+    font-size: 1.6em;
+    text-decoration: underline;
+    color: white;
 }
 
 .control-label {
-	margin-top: 8px;
-	color: white;
-	font-family: raleway;
+    margin-top: 8px;
+    color: white;
+    font-family: raleway;
 }
 
 .checkbox {
-	margin-left: 40px;
-	color: white;
-	font-family: raleway;
+    margin-left: 40px;
+    color: white;
+    font-family: raleway;
 }
 
 .help-block {
-	position: abolute;
-	margin-left: -40.3vw;
-	margin-top: -70px;
-	width: 100vw;
-	text-align: center;
+    position: abolute;
+    margin-left: -40.3vw;
+    margin-top: -70px;
+    width: 100vw;
+    text-align: center;
 }
 
 
 /*----- REGISTER CSS -----*/
 #regforms {
-	margin-top: 13vh;
+    margin-top: 13vh;
+}
+
+#regforms input:valid {
+    border-color: lightgreen;
+    box-shadow: 0 0 8px 2px rgb(0,250,0,0.2);
+}
+
+#regforms input:invalid {
+    border-color: indianred;
+    box-shadow: 0 0 8px 2px rgb(250,0,0,0.2);
+}
+
+#radioBtns {
+    font-family: ralewayreg;
+    color: white;
+}
+
+#radioBtns > input {
+    box-shadow: none;
+    margin-left: 3%;
+    margin-top: 11px;
+}
+
+#radioBtns > input:last-of-type {
+    box-shadow: none;
+    margin-left: 30px;
+}
+
+#radioBtns > span {
+    letter-spacing: 2px;
+    margin-left: 5px;
 }
 
 #regbtn {
-	font-family: moonfbold;
-	color: #383838;
-	font-size: 2em;
-	padding-top: 0px;
-	padding-bottom: 0px;
+    font-family: moonfbold;
+    color: #383838;
+    font-size: 2em;
+    margin-left: 7%;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     letter-spacing: 3px;
+    width: 86%;
+}
+
+#regbtn:hover {
+    color: white;
 }
 
 .form-horizontal label {
-	font-family: raleway;
-	position: relative;
-	margin: 0px;
+    font-family: raleway;
+    position: relative;
+    margin: 0px;
 }
 
 
@@ -193,10 +272,14 @@ hr {
     letter-spacing: 3px;
 }
 
-.panel-body > img {
+.image {
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    border: 5px dashed #6e7b90;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1px;
 }
 
 .panel-body > p {
@@ -217,8 +300,7 @@ hr {
 /*----- CALCULATOR CSS -----*/
 form h2, form h3 {
     color: #383838;
-    font-family: summer;
-    font-weight: bold;
+    font-family: raleway;
     letter-spacing: 3px;
 }
 
@@ -233,14 +315,44 @@ form h2, form h3 {
     letter-spacing: 3px;
 }
 
+.calcpanel {
+    text-align: center;
+}
+
+.calcpanel input {
+    text-align: center;
+}
+
 .calcform {
-    border: 2px solid red;
+    margin: auto;
+    width: 100%;
+}
+
+.calcform input {
+    margin: auto;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.calcBtnHolder {
+    width: 100%;
+}
+
+.calcBtn {
+    margin: 10px 20px 10px 15px;
+    width: 40%;
+}
+
+#submit {
+    width: 100%;
 }
 
 
 /*----- PROFILE CSS -----*/
 #profpicdiv > img {
-    border: 20px outset white;
+    border: 20px solid white;
+    border-bottom-color: lightgray;
+    border-right-color: lightgray;
     position: absolute;
     float: left;
     margin-left: 170px;
@@ -250,7 +362,8 @@ form h2, form h3 {
 }
 
 .profileinfo {
-    border: 3px dashed #529ecc;
+    border: 3px dashed #6e7b90;
+    border-radius: 5px;
     padding: 0px;
 }
 
@@ -267,28 +380,33 @@ form h2, form h3 {
 
 .contentstripe h4 {
     font-family: summer;
+    letter-spacing: 3px;
     font-size: 2em;
     padding: 0px;
 }
 
-/*----- VIEW SUBJECT CSS -----*/
+/*----- VIEW SUBJECT / CALCULATED GRADE CSS -----*/
 .namespan {
-    font-family: summer;
+    font-family: raleway;
     font-size: 1.5em;
-    font-weight: bold;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 }
 
 .subjecttable > h3 {
     text-align: center;
     padding: 0px;
     margin: auto;
-    font-family: moonfbold;
-    font-size: 3em;
+    font-family: raleway;
+    font-size: 2.5em;
+    letter-spacing: 2px;
 }
 
 .subjecttable > h3:first-child {
     margin-bottom: 10px;
+}
+
+.subjecttable > h1 {
+    font-family: raleway;
 }
 
 .subjecttable > table {
@@ -298,15 +416,19 @@ form h2, form h3 {
 }
 
 table{
-    border: 3px solid #36465d;
+    border: 3px solid #6e7b90;
 }
 
 td {
     padding: 10px 40px 0px 40px;
-    font-family: summer;
+    font-family: raleway;
     font-size: 1.2em;
-    font-weight: bold;
     letter-spacing: 2px;
+}
+
+td:first-child {
+    font-family: ralewayreg;
+    font-weight: bold;
 }
 
 tr:nth-child(even) {
@@ -314,32 +436,44 @@ tr:nth-child(even) {
 }
 
 tr:nth-child(odd) {
-    background-color: #36465d;
+    background-color: #6e7b90;
     color: white;
+}
+
+#total {
+    margin-top: 15px;
 }
 
 #hrmini {
-    padding: 0; 
-    border: none; 
-    border-top: medium double #333; 
-    color: #333; 
-    text-align: center; 
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
     width: 60%;
 }
 
-.showbtn {
-    margin: 20px 15px 10px 0px;
-    background-color: #529ecc;
-    color: white;
-    font-family: moonfbold;
+#showBtns {
+    width: 100%;
+    color: #383838;
     font-size: 2em;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    letter-spacing: 3px;
 }
 
-.showbtn > a {
-    color: white;
+#showBtns > a, #delete {
+    text-align: center;
+    letter-spacing: 2px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+
+#delete {
+    background-color: white;
+    border: 1px dashed lightgray;
+}
+
+#delete:hover {
+    background-color: indianred;
+    border: none;
 }
 
 
@@ -350,8 +484,44 @@ tr:nth-child(odd) {
 
 .postpanel > span {
     margin-left: 10px;
-    font-family: summer;
-    font-size: 1.5em;
-    font-weight: bold;
+    font-family: raleway;
+    font-size: 1em;
     letter-spacing: 2px;
+}
+
+.back {
+    letter-spacing: 2px;
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    border: 1px dashed lightgray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.back:hover {
+    background-color: indianred;
+    border-color: transparent;
+}
+
+
+/*----- EDIT CSS -----*/
+#editForm {
+    text-align: center;
+}
+
+.addButton, .removeButton {
+    margin-top: 5px;
+    width: 49%;
+}
+
+#editCalcBtn {
+    color: #529ecc;
+    width: 100%;
+    letter-spacing: 2px;
+    font-size: 1.3em;
+}
+
+#editCalcBtn:hover {
+    color: white;
 }

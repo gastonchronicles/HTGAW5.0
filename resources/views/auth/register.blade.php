@@ -71,7 +71,7 @@
                         <input id="password" type="password" class="form-control" name="password" required>
 
                         @if ($errors->has('password'))
-                            <span class="help-block">
+                            <span class="help-block" id="passError">
                                 <strong>{{ $errors->first('password') }}</strong>
                             </span>
                         @endif
@@ -88,15 +88,15 @@
 
 
 
-                <div class="form-group">
+                <div class="form-group" id="radioBtns">
 
                     <label for="position" class="col-md-4 control-label">Register As:</label>
                     <input type="radio" name="position"
                            <?php if (isset($position) && $position=="teacher") echo "checked";?>
-                           value="teacher">Teacher
+                           value="teacher"><span>Teacher</span>
                     <input type="radio" name="position"
                            <?php if (isset($position) && $position=="student") echo "checked";?>
-                           value="student">Student
+                           value="student"><span>Student</>
 
                 </div>
 

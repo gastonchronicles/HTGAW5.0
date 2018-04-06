@@ -20,25 +20,23 @@
 
                             <hr />
 
-                            <div class="col-sm-4" class="calcform">
-
-
-                                <div id='TextBoxesGroup'>
-                                    <div id="TextBoxDiv1">
-                                        <h3>Category #1:</h3><input type="text" name="category[]" class="form-control"/>
-                                        Percentage<input type="text" name="percentage[]" class="form-control"/>
-                                        <input type="hidden" name="category_id[]" class="form-control" value="1"/>
-                                    </div>
+                            <div id='TextBoxesGroup'>
+                                <div id="TextBoxDiv1" class="calcform">
+                                    <h3>Category #1:</h3><input type="text" name="category[]" class="form-control" placeholder="Category Name"/>
+                                    <h4>Percentage # 1</h4><input type="text" name="percentage[]" class="form-control" placeholder="Enter a number"/>
                                 </div>
-                                <input type='button' value='Add Category' id='addButton'>
-                                <input type='button' value='Remove Category' id='removeButton'>
-
-
                             </div>
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
+
+                            <div class="calcBtnHolder">
+                                <input type='button' value='Add Category' id='addButton' class="btn calcBtn">
+                                <input type='button' value='Remove Category' id='removeButton' class="btn calcBtn">
+                            </div>
 
 
-                            <input type="submit" id="submit" class="btn pull-right" value="Submit" />
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
+
+
+                            <input type="submit" id="submit" class="btn" value="Submit" />
                         </form>
                     </div>
                 </div>

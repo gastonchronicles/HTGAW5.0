@@ -18,11 +18,11 @@ $(document).ready(function(){
         }
 
         var newTextBoxDiv = $(document.createElement('div'))
-            .attr("id", 'TextBoxDiv' + counter);
+            .attr({id: "TextBoxDiv" + counter, class: "calcform"});
 
         newTextBoxDiv.after().html('<h3>Category #'+ counter + ' : </h3>' +
-            '<input type="text" name="category[]" class="form-control"/> Percentage #'+ counter + ' :' +
-        '<input type="text" name="percentage[]" class="form-control"/><input type="hidden" name="category_id[]" value='+counter+' class="form-control"/>' );
+            '<input type="text" name="category[]" class="form-control" placeholder="Category Name" />' + '<h4>Percentage #'+ counter + ' :</h4>' +
+            '<input type="text" name="percentage[]" class="form-control" placeholder="Enter a number" />');
 
 
 

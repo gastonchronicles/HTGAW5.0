@@ -11,7 +11,7 @@
             <div class="col-lg-6 col-lg-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <form class="form-group" action="/ratings/{{ $rating->subject_id }}" method="POST">
+                        <form class="form-group" action="/ratings/{{ $rating->subject_id }}" method="POST" id="editForm">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
 
@@ -52,8 +52,8 @@
                                 </div>
 
 
-                                <button type="button" id = "addButton_{{$posts->category}}"  class="btn btn-primary addButton" data-cat ="cat_{{$posts->category_id}}">Add Button</button>
-                                <button type="button" class="btn btn-primary removeButton">Remove</button>
+                                <button type="button" id = "addButton_{{$posts->category}}"  class="btn addButton" data-cat ="cat_{{$posts->category_id}}">Add Score</button>
+                                <button type="button" class="btn removeButton">Remove Score</button>
 
 
 
@@ -68,7 +68,7 @@
 
                             <input type="hidden" name="subject_name" value="{{$pota->name}}" />
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
-                            <input type="submit" name="submit" value="Calculate" class="btn btn-success pull-right" />
+                            <input type="submit" name="submit" value="Calculate" class="btn" id="editCalcBtn"/>
                         </form>
                     </div>
                 </div>
