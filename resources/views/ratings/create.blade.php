@@ -14,18 +14,24 @@
                             {{ csrf_field() }}
 
 
-                            <h2>Subject:</h2><input type="text" name="name" class="form-control"/>
+                            <h2>Subject:</h2><input type="text" name="name" class="form-control" required />
+
 
                                 <input type="hidden" name="subject_id" value="{{($posts->count())+1}}" class="form-control"/>
 
                             <hr />
 
+
+
                             <div id='TextBoxesGroup'>
                                 <div id="TextBoxDiv1" class="calcform">
-                                    <h3>Category #1:</h3><input type="text" name="category[]" class="form-control" placeholder="Category Name"/>
-                                    <h4>Percentage # 1</h4><input type="text" name="percentage[]" class="form-control" placeholder="Enter a number"/>
+
+                                    <h3>Category #1:</h3><input type="text" name="category[]" class="form-control" placeholder="Category Name"  required/>
+                                    <h4>Percentage # 1</h4><input id="percentage" type="text" name="percentage[]" class="form-control" placeholder="Enter a number" required/>
+
                                 </div>
                             </div>
+
 
                             <div class="calcBtnHolder">
                                 <input type='button' value='Add Category' id='addButton' class="btn calcBtn">
@@ -36,7 +42,7 @@
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
 
 
-                            <input type="submit" id="submit" class="btn" value="Submit" />
+                            <input type="submit" id="submit" class="btn" value="Submit" onclick="return myFunction()"/>
                         </form>
                     </div>
                 </div>

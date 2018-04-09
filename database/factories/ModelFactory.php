@@ -33,7 +33,7 @@ $factory->define(App\Rating::class, function (Faker\Generator $faker) {
 
 
         'subject_id' => $faker->randomNumber,
-        'category_id' => $faker->randomNumber,
+//        'category_id' => $faker->randomNumber,
         'category' =>$faker->word,
         'percentage' =>$faker->randomNumber,
 

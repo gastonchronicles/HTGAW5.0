@@ -87,7 +87,7 @@
                 </div>
 
 
-
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                 <div class="form-group" id="radioBtns">
 
                     <label for="position" class="col-md-4 control-label">Register As:</label>
@@ -96,7 +96,14 @@
                            value="teacher"><span>Teacher</span>
                     <input type="radio" name="position"
                            <?php if (isset($position) && $position=="student") echo "checked";?>
-                           value="student"><span>Student</>
+                           value="student"><span>Student</span>
+
+                </div>
+                @if ($errors->has('position'))
+                    <span class="help-block" id="passError">
+                                <strong>{{ $errors->first('position') }}</strong>
+                            </span>
+                @endif
 
                 </div>
 

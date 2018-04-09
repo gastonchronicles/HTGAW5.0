@@ -9,22 +9,27 @@
                         <a href="/ratings" class="btn back">Back</a>
 
                         <div class="panel-heading namespan">
-                            <span><h2>Grading System:</h2></span>
+                            <h1>Subject: {{ $subject->name }}</h1>
+
                         </div>
 
                         <div class="panel panel-default temp">
                             <div class="panel-body subjecttable">
 
-                                <h3>{{$post->subject_id}} : Subject: {{ $pota->name }}</h3>
 
+                                <span><h2>Grading System:</h2></span>
                                 <input type="hidden" name="subject_id" class="form-control" value="{{$post->subject_id}}"/>
 
 
                             @foreach($categories as $posts)
-                                    <hr>
-                                    <h1> {{$posts->category}} ----- {{$posts->percentage}}%</h1>
 
-                                    <hr>
+                                    <tr>
+                                        <td><h3>{{$posts->category}} = {{$posts->percentage}}%</h3></td>
+
+                                    </tr>
+
+
+
                                 @endforeach
                             </div>
 

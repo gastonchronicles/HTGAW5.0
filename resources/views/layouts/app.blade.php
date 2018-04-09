@@ -56,9 +56,9 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
-
+                            @if ((Auth::user()->position)=='teacher')
                                     <li><a href="/ratings/create">Create Syllabus Rating</a></li>
-
+                            @endif
                                     <li><a href="/ratings">Syllabus Rating</a></li>
 
                                     <li><a href="/posts">Calculated Grades</a></li>

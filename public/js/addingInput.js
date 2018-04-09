@@ -1,12 +1,38 @@
 
 
 
+function myFunction() {
+    var arr = document.getElementsByName('percentage[]');
+    var tot = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (parseInt(arr[i].value))
+            tot += parseInt(arr[i].value);
+    }
+
+
+    if(tot > 100){
+        alert("Your percentage total exceed by "+(tot-100)+"%");
+        return false;
+    }
+    else if (tot != 100){
+        // document.getElementById('total').value = tot;
+        alert("Percentage must be 100% your percentage total is: "+tot+"%");
+        return false;
+    }
+
+
+    else{
+        alert("You're good to go!");
+        // document.getElementById('total').value = tot;
+        return true;
+}
+}
+
 
 
 $(document).ready(function(){
 
-        // document.getElementById('score').value = parseInt(document.getElementById('score1').value) + parseInt(document.getElementById('score2').value);
-        // document.getElementById('total').value = parseInt(document.getElementById('total1').value) + parseInt(document.getElementById('total2').value);
+
 
     var counter = 2;
 
@@ -21,8 +47,8 @@ $(document).ready(function(){
             .attr({id: "TextBoxDiv" + counter, class: "calcform"});
 
         newTextBoxDiv.after().html('<h3>Category #'+ counter + ' : </h3>' +
-            '<input type="text" name="category[]" class="form-control" placeholder="Category Name" />' + '<h4>Percentage #'+ counter + ' :</h4>' +
-            '<input type="text" name="percentage[]" class="form-control" placeholder="Enter a number" />');
+            '<input type="text" name="category[]" class="form-control" placeholder="Category Name" required/>' + '<h4>Percentage #'+ counter + ' :</h4>' +
+            '<input type="text" id="percentage" name="percentage[]" class="form-control" placeholder="Enter a number" required/>');
 
 
 

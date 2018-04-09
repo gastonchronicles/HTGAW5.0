@@ -7,14 +7,27 @@ use App\Subject;
 use Illuminate\Http\Request;
 use App\Rating;
 use App\Grade;
-use App\Cat;
 use Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class RatingsController extends Controller
 {
 
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|max:255|unique:subjects',
+            'category' => 'required|max:255',
+            'percentage' => 'required',
+        ]);
+    }
+
+
+
     public function index()
     {
+
 
 
         $ratings = Subject::all();
@@ -26,6 +39,7 @@ class RatingsController extends Controller
 
     public function create()
     {
+
 
         $posts = Subject::all();
        return view('ratings.create', compact('posts'));
@@ -41,12 +55,25 @@ class RatingsController extends Controller
         $subject->save();
 
 
+
+
         $subjectId = $request->input('subject_id');
 
-        $categoryIdArray = $request->input('category_id');
-//        dd($categoryIdArray);
+//        $categoryIdArray = $request->input('category_id');
+
 
         $categoryArray = $request->input('category');
+
+        $counting = 0;
+
+       foreach($categoryArray as $sht){
+           $noSpaces = str_replace(' ', '', $sht);
+           $categoryArray[$counting] = $noSpaces;
+           $counting ++;
+       }
+
+
+
         $percentageArray = $request->input('percentage');
 
 
@@ -59,12 +86,11 @@ class RatingsController extends Controller
         $items = array();
         for($i = 0; $i < $count; $i++){
 
-
             $item = array(
 
 
                 'subject_id' => $subjectId,
-                'category_id' => $categoryIdArray[$i],
+//                'category_id' => $categoryIdArray[$i],
                 'category' => $categoryArray[$i],
                 'percentage' => $percentageArray[$i]
             );
@@ -82,11 +108,11 @@ class RatingsController extends Controller
     public function show($subject_id)
     {
 
-        $pota = Subject::where('subject_id', '=', $subject_id)->get()->first();
+        $subject = Subject::where('subject_id', '=', $subject_id)->get()->first();
         $categories = Rating::where('subject_id', '=', $subject_id)->get();
         $post = Rating::where('subject_id','=',$subject_id)->get()->first();
 
-        return view('ratings.show', compact('post', 'categories', 'pota'));
+        return view('ratings.show', compact('post', 'categories', 'subject'));
 
     }
 
@@ -94,13 +120,13 @@ class RatingsController extends Controller
     {
 
         $rating = Rating::where('subject_id','=',$subject_id)->get()->first();
-        $pota = Subject::where('subject_id', '=', $subject_id)->get()->first();
+        $subject = Subject::where('subject_id', '=', $subject_id)->get()->first();
         $categories = Rating::where('subject_id', '=', $subject_id)->get();
         $standing = Standing::all();
 
 
 
-       return view('ratings.edit', compact('rating', 'categories', 'pota', 'standing'));
+       return view('ratings.edit', compact('rating', 'categories', 'subject', 'standing'));
 
     }
 
@@ -115,7 +141,6 @@ class RatingsController extends Controller
         $percentageArray = $request->input('percentage');
 
         $count = count($scoreArray);
-
 
 
 
@@ -141,49 +166,22 @@ class RatingsController extends Controller
 
 
 
-//            $catingSum = DB::table('grades')
-//                ->groupBy('category')
-//                ->selectRaw('*, sum(score) as sum ,sum(total) as total')
-//                ->get();
-//
-//            foreach($catingSum as $kuring) {
-//                $hello[] = $kuring->sum;
-//                $hello2[] = $kuring->total;
-//            }
-//            dd($hello, $hello2);
-//
-
-
-//
-//
-//
-//        $items = array();
-//        for($i = 0; $i < $count; $i++){
-//
-//
-//
-//
-//            $item = array(
-//
-//                'subject_id' => $subject_id,
-//                'standing_id' => $standing_id,
-//                'category' => $categoryArray[$i],
-//                'score' => $scoreArray[$i],
-//                'total' => $totalArray[$i],
-//                'user_id' => Auth::user()->id,
-//            );
-//            $items[] = $item;
-//        }
-//
-//
-//        Grade::insert($items);
+            $catingSum = DB::table('grades')
+                ->groupBy('category')
+                ->selectRaw('*, sum(score) as sum ,sum(total) as total')
+                ->where('standing_id', '=', $standing_id)
+                ->get();
 
 
 
+        $counter = 0;
+        foreach($catingSum as $kuring) {
 
+            $sumArray[$counter] = $kuring->sum;
+            $sumTotalArray[$counter] = $kuring->total;
+            $counter ++;
 
-
-
+        }
 
 
 
@@ -194,8 +192,10 @@ class RatingsController extends Controller
 
         for($i = 0; $i < $count; $i++){
 
-            $standing->overall += ((($scoreArray[$i]/$totalArray[$i])*($percentageArray[$i]/100)) * 100);
+            $standing->overall += ((($sumArray[$i]/$sumTotalArray[$i])*($percentageArray[$i]/100)) * 100);
         }
+
+
 
         if(($standing->overall<=100) and ($standing->overall>95)){
             $standing->status="1.0";

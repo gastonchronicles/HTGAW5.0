@@ -17,7 +17,7 @@
 
 
                             <input type="hidden" name="standing_id" value="{{($standing->count())+1}}" class="form-control"/>
-                            <h3>{{$rating->subject_id}} : Subject: {{ $pota->name }}</h3>
+                            <h3>{{$rating->subject_id}} : Subject: {{ $subject->name }}</h3>
                             <input type="hidden" name="subject_id" class="form-control" value="{{$rating->subject_id}}"/>
 
 
@@ -27,26 +27,21 @@
                                 <input type="hidden" name="category[]" value="{{$posts->category}}" />
 
 
-                                <h1> {{$posts->category_id }}. {{$posts->category}} ----- {{$posts->percentage}}%</h1>
 
+                                <tr>
+                                    <td><h1>{{$posts->category}} = {{$posts->percentage}}%</h1></td>
 
-
-
-
-                                {{--Score<input type="text" name="score[]" id="score" class="form-control" />--}}
-                                {{--Total Score<input type="text" name="total[]" id="total" class="form-control"/>--}}
-
-
+                                </tr>
 
                                 <div id='TextBoxesGroup_{{$posts->category}}'>
 
 
                                     <div id="TextBoxDiv1">
 
-                                        {{--<input type="hidden" id="score" name="score[]" value="" class="score"/>--}}
-                                        {{--Score<input type="text" name="score[]" class="form-control"/>--}}
-                                        {{--Total Score<input type="text" name="total[]" class="form-control"/>--}}
-                                        {{--<input type="hidden" name="ninja" value="{{$posts->category}}_1"/>--}}
+
+                                        Score<input type="number" name="score[]" id="score" class="form-control" value=" " required/>
+                                        Total<input type="number" name="total[]" id="total" class="form-control" value=" " required/>
+                                        <input type="hidden" name="cats_name[]" value="{{$posts->category}}" />
 
                                     </div>
                                 </div>
@@ -57,18 +52,13 @@
 
 
 
-
-
-
-
-
                                 <input type="hidden" name="percentage[]" value="{{$posts->percentage}}"/>
-                                <hr>
+
                             @endforeach
 
-                            <input type="hidden" name="subject_name" value="{{$pota->name}}" />
+                            <input type="hidden" name="subject_name" value="{{$subject->name}}" />
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
-                            <input type="submit" name="submit" value="Calculate" class="btn" id="editCalcBtn"/>
+                            <input type="submit" name="submit" value="Calculate" class="btn" id="editCalcBtn" onclick="return myFunction()"/>
                         </form>
                     </div>
                 </div>
