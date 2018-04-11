@@ -25,6 +25,7 @@ class RatingsController extends Controller
 
 
 
+
     public function index()
     {
 
@@ -245,7 +246,7 @@ class RatingsController extends Controller
 
     public function destroy($subject_id)
     {
-        $rating = Rating::where('subject_id','=',$subject_id)->get()->first();
+        $rating = Subject::where('subject_id','=',$subject_id)->get()->first();
         $rating->delete();
 
         return redirect('/ratings');

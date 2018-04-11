@@ -62,6 +62,12 @@ function myFunction() {
 
     for (var i = 0; i < scores.length; i++) {
 
+
+        if ((parseInt(scores[i].value))<0){
+            alert("Score must be a positive number");
+            return false;
+        }
+
         if ((parseInt(totals[i].value))==0){
             alert("Value of total is not allowed to be 0");
             return false;

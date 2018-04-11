@@ -1,10 +1,29 @@
 
 
-
 function myFunction() {
     var arr = document.getElementsByName('percentage[]');
+    var subjectname = document.getElementsByName('name');
+
     var tot = 0;
+
+
+for {}
+    if (subjectname ==  subject.name){
+        alert("Subject already made");
+        return false
+    }
+
+
+
+
     for (var i = 0; i < arr.length; i++) {
+
+        if ((parseInt(arr[i].value))<0){
+            alert("Percentage must be a positive number");
+            return false;
+        }
+
+
         if (parseInt(arr[i].value))
             tot += parseInt(arr[i].value);
     }
@@ -22,7 +41,7 @@ function myFunction() {
 
 
     else{
-        alert("You're good to go!");
+
         // document.getElementById('total').value = tot;
         return true;
 }
