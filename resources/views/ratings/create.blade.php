@@ -14,10 +14,13 @@
                             {{ csrf_field() }}
 
 
-                            <h2>Subject:</h2><input type="text" name="name" class="form-control" required />
+                            <h2>Subject:</h2><input type="text" id="name" name="name" class="form-control" required />
 
 
                                 <input type="hidden" name="subject_id" value="{{($posts->count())+1}}" class="form-control"/>
+                            @foreach($posts as $post)
+                            <input type="hidden" name="listOfSubjects[]" value="{{$post->name}}" />
+                            @endforeach
 
                             <hr />
 

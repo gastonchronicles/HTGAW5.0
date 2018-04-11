@@ -2,16 +2,20 @@
 
 function myFunction() {
     var arr = document.getElementsByName('percentage[]');
-    var subjectname = document.getElementsByName('name');
+    var subjectname = document.getElementById('name');
+    var listofsubjects = document.getElementsByName('listOfSubjects[]');
 
     var tot = 0;
 
 
-for {}
-    if (subjectname ==  subject.name){
+
+for (var x = 0; x < listofsubjects.length; x++) {
+
+    if ((listofsubjects[x].value) == subjectname.value) {
         alert("Subject already made");
-        return false
+        return false;
     }
+}
 
 
 
